@@ -1,0 +1,13 @@
+- name: create local kubernetes repository
+  template:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+  become: yes
+  become_method: sudo
+
+- name: yum install the latest version of kubectl
+  yum:
+    name: kubectl
+    state: latest
+  become: yes
+  become_method: sudo 

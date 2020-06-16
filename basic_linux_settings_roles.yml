@@ -1,0 +1,5 @@
+---
+- hosts: data_nodes
+  remote_user: root
+  roles:
+    - role: basic_linux_settings

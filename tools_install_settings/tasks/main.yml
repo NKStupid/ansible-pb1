@@ -1,0 +1,2 @@
+- include: install_az_cli.yml
+- include: install_kubectl.yml

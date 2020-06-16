@@ -1,0 +1,14 @@
+- name: add disable ipv6 line to /etc/sysctl.conf
+  blockinfile:
+    marker: "# {mark} DISABLE IPV6"
+    path: /etc/sysctl.conf
+    block: |
+      net.ipv6.conf.all.disable_ipv6 =1
+      net.ipv6.conf.default.disable_ipv6 =1
+  become: yes
+  become_method: sudo
+
+- name: run sysctl
+  command: sysctl --load=/etc/sysctl.conf
+  become: yes
+  become_method: sudo

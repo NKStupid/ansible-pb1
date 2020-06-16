@@ -1,0 +1,8 @@
+- name: create group "infra-user001"
+  group:
+    name: infra-user001
+    gid: 1001
+    state: present
+    system: no
+  become: yes
+  become_method: sudo

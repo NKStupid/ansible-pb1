@@ -1,0 +1,12 @@
+- name: Set timezone to Asia/Tokyo
+  timezone: name=Asia/Tokyo
+  become: yes
+  become_method: sudo
+
+- name: restart service cron on CentOS
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: crond
+  become: yes
+  become_method: sudo

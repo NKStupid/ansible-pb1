@@ -1,0 +1,4 @@
+- name: Check that the somefile.conf exists
+  stat:
+    path: /dev/sdc
+  register: stat_result

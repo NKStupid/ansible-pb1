@@ -1,0 +1,16 @@
+- name: stop firewalld on CentOS
+  systemd: name=firewalld state=stopped enabled=no
+  become: yes
+
+- name: temporary disable selinux
+  selinux: state=disabled
+  become: yes
+  become_method: sudo
+
+- name: permanently disable selinux
+  lineinfile:
+    path: /etc/selinux/config
+    regex: '^SELINUX='
+    line: 'SELINUX=disabled'
+  become: yes
+  become_method: sudo

@@ -1,0 +1,33 @@
+- name: mkfs, if /dev/sdc not exist already
+  filesystem:
+    dev: /dev/sdc
+    fstype: ext4
+  when: stat_result.stat.exists
+  become: yes
+  become_method: sudo
+  
+- name: Creates data directory
+  file:
+    path: /data
+    state: directory
+    owner: wojiushiwo
+    group: wojiushiwo
+    mode: 0775
+    recurse: yes
+  become: yes
+  become_method: sudo
+
+- name: just mount target disk (because I failed to find the UUID of /dev/sdc)!
+  mount:
+    path: /data
+    state: mounted
+    src: /dev/sdc
+    fstype: ext4
+  become: yes
+  become_method: sudo
+
+
+
+
+
+  

@@ -1,0 +1,3 @@
+- include: disable_firewall_selinux.yml
+- include: disable_ipv6.yml
+- include: set_timezone_to_Tokyo.yml

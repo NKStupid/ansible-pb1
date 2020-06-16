@@ -1,0 +1,8 @@
+- name: create user "infra-user001"
+  user:
+    name: infra-user001
+    shell: /bin/bash
+    groups: infra-user001,wheel
+    append: yes
+  become: yes
+  become_method: sudo

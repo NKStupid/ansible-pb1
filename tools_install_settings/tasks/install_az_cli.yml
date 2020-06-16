@@ -1,0 +1,22 @@
+- name: import microsoft repository key to rpm
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+  become: yes
+  become_method: sudo
+
+- name: create local azure-cli repository
+  template:
+    src: azure-cli.repo
+    dest: /etc/yum.repos.d/azure-cli.repo
+  become: yes
+  become_method: sudo
+
+
+- name: yum install the latest version of azure-cli
+  yum:
+    name: azure-cli
+    state: latest
+  become: yes
+  become_method: sudo
+  

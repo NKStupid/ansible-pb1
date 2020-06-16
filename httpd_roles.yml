@@ -1,0 +1,5 @@
+---
+- hosts: test001host
+  remote_user: root
+  roles:
+    - role: httpd
