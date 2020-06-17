@@ -1,5 +1,0 @@
----
-- hosts: data_nodes
-  remote_user: root
-  roles:
-    - role: install_disk
