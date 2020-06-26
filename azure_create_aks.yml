@@ -20,7 +20,6 @@
       name: "{{ aks_name }}"
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
-      dns_prefix: "{{ aks_name }}"
       kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
